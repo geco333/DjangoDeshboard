@@ -23,11 +23,28 @@ class Artist(models.Model):
 # The error was: list index out of range
 
 
+class Genre(models.Model):
+    genreid = models.AutoField(db_column='GenreId')  # Field name made lowercase.
+    name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
 
+    class Meta:
+        managed = False
+        db_table = 'Genre'
 # Unable to inspect table 'Invoice'
 # The error was: list index out of range
 # Unable to inspect table 'InvoiceLine'
 # The error was: list index out of range
+
+
+class Log(models.Model):
+    time_stamp = models.TextField(blank=True, null=True)
+    request = models.TextField(blank=True, null=True)
+    response = models.TextField(blank=True, null=True)
+    function = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Log'
 
 
 class Mediatype(models.Model):

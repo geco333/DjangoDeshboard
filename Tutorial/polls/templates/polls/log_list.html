@@ -1,0 +1,29 @@
+{% extends 'polls/base.html' %}
+
+{% block title %} Log {% endblock %}
+
+{% block body %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Time Stamp</th>
+        <th scope="col">Request</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for log in object_list %}
+        <tr>
+            <td scope="row">{{ log.id }}</td>
+            <td>{{ log.time_stamp }}</td>
+            <td><a href="{{ log.id }}"><pre>{{ log.request }}</pre></a></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock body %}

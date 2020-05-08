@@ -7,14 +7,17 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django_tables2 import SingleTableView
 
-from .models import Question, Choice, Genre
+from .models import Question, Choice, Genre, Log
 from .tables import GenreTable
 
 
-class GenreView(SingleTableView):
-    model = Genre
-    table_class = GenreTable
-    template_name = 'genre_list.html'
+class LogView(ListView):
+    model = Log
+    template_name = 'log_list.html'
+
+
+class LogDetailView(DetailView):
+    model = Log
 
 
 class IndexView(ListView):

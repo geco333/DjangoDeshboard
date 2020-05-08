@@ -4,6 +4,18 @@ from django.utils import timezone
 from django.db import models
 
 
+class Log(models.Model):
+    time_stamp = models.TextField(blank=True, null=True)
+    request = models.TextField(blank=True, null=True)
+    response = models.TextField(blank=True, null=True)
+    function = models.TextField(blank=True, null=True)
+
+
+    class Meta:
+        managed = False
+        db_table = 'Log'
+
+
 class Genre(models.Model):
     genreid = models.AutoField(db_column='GenreId', primary_key=True)
     name = models.TextField(db_column='Name', blank=True, null=True)
